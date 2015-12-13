@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace FichePerso.ViewModel
 {
-    public class BaseViewModelLocator
+    public class ViewModelLocator
     {
-        public BaseViewModelLocator()
+        public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 

@@ -6,10 +6,84 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding Main, Source={StaticResource Locator}}">
+    DataContext="{Binding MainPage, Source={StaticResource Locator}}">
+    <Page.Resources>
+        <Style x:Key="CharacterTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        
+        <DataTemplate x:Key="CharacterTemplate">
+            <Grid
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Stretch"
+                    BorderBrush="#FFB8B8B8"
+                    BorderThickness="0 0 0 1"/>
+                <TextBlock
+                    Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="0 8"
+                    Style="{StaticResource CharacterTextStyle}"
+                    Text="{Binding Name}"/>
+                <TextBlock
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Style="{StaticResource CharacterTextStyle}"
+                    Text="{Binding Career}"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image
+            Margin="8"
+            Height="70"
+            Stretch="Uniform"
+            Source="ms-appx:///Assets/Warhammer-logo.png"/>
+        <Button
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            Margin="0 0 0 16"
+            Content="Créer un nouveau personnage"
+            Command="{Binding CreateNewCharacterCommand}"/>
+        <Border
+            Grid.Row="2"
+            Margin="8 0 8 8"
+            Padding="0 4 0 0"
+            BorderThickness="0 1 0 0">
+            <Border.BorderBrush>
+                <LinearGradientBrush
+                    StartPoint="0,0"
+                    EndPoint="1,0">
+                    <GradientStop Color="#0000" Offset="0"/>
+                    <GradientStop Color="#FFA4A4A4" Offset="0.5"/>
+                    <GradientStop Color="#0000" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <TextBlock
+                HorizontalAlignment="Center"
+                Style="{StaticResource CharacterTextStyle}"
+                FontWeight="Bold"
+                Text="Liste des personnages"/>
+        </Border>
         <ListView
-            ItemsSource="{Binding TestItems}"/>
+            Grid.Row="3"
+            HorizontalAlignment="Stretch"
+            ItemTemplate="{StaticResource CharacterTemplate}"/>
     </Grid>
 </Page>
