@@ -1,1 +1,0 @@
-C:\Developpement\FichePerso\FichePerso\FichePerso.csproj;x86

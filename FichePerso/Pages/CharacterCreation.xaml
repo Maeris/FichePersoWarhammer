@@ -1,0 +1,1130 @@
+﻿<Page
+    x:Class="FichePerso.Pages.CharacterCreation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FichePerso.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    DataContext="{Binding CharacterCreation, Source={StaticResource Locator}}">
+
+    <Page.Resources>
+        <Style x:Key="InformationText" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+    </Page.Resources>
+
+    <!--<LinearGradientBrush
+                    StartPoint="0,0"
+                    EndPoint="1,0">
+        <GradientStop Color="#0000" Offset="0"/>
+        <GradientStop Color="#FFA4A4A4" Offset="0.5"/>
+        <GradientStop Color="#0000" Offset="1"/>
+    </LinearGradientBrush>-->
+
+    <ScrollViewer Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel
+            Orientation="Vertical">
+            <Border x:Name="PageTitle"
+                    VerticalAlignment="Top"
+                    Margin="8"
+                    BorderThickness="0 0 0 1">
+                <Border.BorderBrush>
+                    <LinearGradientBrush
+                        StartPoint="0,0"
+                        EndPoint="1,0">
+                        <GradientStop Color="#0000" Offset="0"/>
+                        <GradientStop Color="#FFA4A4A4" Offset="0.5"/>
+                        <GradientStop Color="#0000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <TextBlock
+                    Margin="8"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    FontSize="30"
+                    Text="Creation de personnage"/>
+            </Border>
+            <Border x:Name="BasicInformation"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    Padding="40 0"
+                    Margin="0 8"
+                    BorderThickness="0 1">
+                <Border.BorderBrush>
+                    <LinearGradientBrush
+                        StartPoint="0,0"
+                        EndPoint="1,0">
+                        <GradientStop Color="#0000" Offset="0"/>
+                        <GradientStop Color="#FFA4A4A4" Offset="0.5"/>
+                        <GradientStop Color="#0000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <TextBlock
+                    Margin="8"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    FontSize="30"
+                    Text="Informations de base"/>
+            </Border>
+            <Grid x:Name="Name"
+                  HorizontalAlignment="Stretch"
+                  Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_NAME"
+                    Style="{StaticResource InformationText}"
+                    Text="Nom : "/>
+                <TextBox
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    Margin="8 0 0 0"/>
+            </Grid>
+            <Grid x:Name="SizeWeightHairEyes"
+                  HorizontalAlignment="Stretch"
+                  Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="16"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_SIZE"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource InformationText}"
+                    Text="Taille : "/>
+                <TextBox
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    Margin="8 0"/>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_SIZE_UNIT"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Style="{StaticResource InformationText}"
+                    Text="m"/>
+                <Rectangle
+                    Grid.Column="3"
+                    Grid.RowSpan="3"
+                    VerticalAlignment="Stretch"
+                    Margin="8 0"
+                    Width="1">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush
+                            StartPoint="0,0"
+                            EndPoint="0,1">
+                            <GradientStop Color="#0000" Offset="0"/>
+                            <GradientStop Color="#FFA4A4A4" Offset="0.5"/>
+                            <GradientStop Color="#0000" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_WEIGHT"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Style="{StaticResource InformationText}"
+                    Text="Poids : "/>
+                <TextBox
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    Margin="8 0"/>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_WEIGHT_UNIT"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Style="{StaticResource InformationText}"
+                    Text="kg"/>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_HAIR"
+                    Grid.Row="0"
+                    Grid.Column="4"
+                    Style="{StaticResource InformationText}"
+                    Text="Cheveux : "/>
+                <TextBox
+                    Grid.Row="0"
+                    Grid.Column="5"
+                    HorizontalAlignment="Stretch"
+                    Margin="8 0 0 0"/>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_EYES"
+                    Grid.Row="2"
+                    Grid.Column="4"
+                    Style="{StaticResource InformationText}"
+                    Text="Yeux : "/>
+                <TextBox
+                    Grid.Row="2"
+                    Grid.Column="5"
+                    HorizontalAlignment="Stretch"
+                    Margin="8 0 0 0"/>
+            </Grid>
+            <Grid x:Name="Siblings"
+                  HorizontalAlignment="Stretch"
+                  Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_SIBLINGS"
+                    Grid.Column="0"
+                    Style="{StaticResource InformationText}"
+                    Text="Frère(s)/Soeur(s) : "/>
+                <TextBox
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    Margin="8 0"/>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_SIBLINGS_SEPARATOR"
+                    Grid.Column="2"
+                    Style="{StaticResource InformationText}"
+                    Text="/"/>
+                <TextBox
+                    Grid.Column="3"
+                    HorizontalAlignment="Stretch"
+                    Margin="8 0 0 0"/>
+            </Grid>
+            <Grid x:Name="AstralSign"
+                  HorizontalAlignment="Stretch"
+                  Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_ASTRAL_SIGN"
+                    Grid.Column="0"
+                    Style="{StaticResource InformationText}"
+                    Text="Signe Astral : "/>
+                <TextBox
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    Margin="8 0 0 0"/>
+            </Grid>
+            <Grid x:Name="Origin"
+                  HorizontalAlignment="Stretch"
+                  Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="16"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_ORIGIN"
+                    Grid.Column="0"
+                    Style="{StaticResource InformationText}"
+                    Text="Origine : "/>
+                <TextBox
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    Margin="8 0 0 0"/>
+                <TextBox
+                    Grid.Column="3"
+                    HorizontalAlignment="Stretch"
+                    Margin="8 0 0 0"/>
+            </Grid>
+            <Grid x:Name="Particularity"
+                  HorizontalAlignment="Stretch"
+                  Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_PARTICULARITY"
+                    Grid.Column="0"
+                    Style="{StaticResource InformationText}"
+                    Text="Particularité : "/>
+                <TextBox
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    Margin="8 0 0 0"/>
+            </Grid>
+            <Border x:Name="Caracteristics"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    Padding="40 0"
+                    Margin="0 8"
+                    BorderThickness="0 1">
+                <Border.BorderBrush>
+                    <LinearGradientBrush
+                        StartPoint="0,0"
+                        EndPoint="1,0">
+                        <GradientStop Color="#0000" Offset="0"/>
+                        <GradientStop Color="#FFA4A4A4" Offset="0.5"/>
+                        <GradientStop Color="#0000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <TextBlock
+                    Margin="8"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    FontSize="30"
+                    Text="Caractéristiques"/>
+            </Border>
+            <Border x:Name="FirstCaracteristics"
+                    Background="Black"
+                    Padding="1"
+                    Margin="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="CC"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="CT"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="4"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="F"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="6"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="E"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="8"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="Ag"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="10"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="Int"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="12"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="FM"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="14"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="Soc"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="4"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="6"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="8"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="10"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="12"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="14"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border x:Name="SecondCaracteristics"
+                    Background="Black"
+                    Padding="1"
+                    Margin="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="A"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="B"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="4"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="BF"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="6"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="BE"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="8"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="M"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="10"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="Mag"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="12"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="PF"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="14"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="PD"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="4"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="6"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="8"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="10"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="12"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="14"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border x:Name="Class"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    Padding="40 0"
+                    Margin="0 8"
+                    BorderThickness="0 1">
+                <Border.BorderBrush>
+                    <LinearGradientBrush
+                        StartPoint="0,0"
+                        EndPoint="1,0">
+                        <GradientStop Color="#0000" Offset="0"/>
+                        <GradientStop Color="#FFA4A4A4" Offset="0.5"/>
+                        <GradientStop Color="#0000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <TextBlock
+                    Margin="8"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    FontSize="30"
+                    Text="Classe de départ"/>
+            </Border>
+            <Grid x:Name="ClassName"
+                  HorizontalAlignment="Stretch"
+                  Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    x:Uid="CREATE_CHAR_CLASS_NAME"
+                    Style="{StaticResource InformationText}"
+                    Text="Nom de la classe : "/>
+                <TextBox
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    Margin="8 0 0 0"/>
+            </Grid>
+            <TextBlock x:Name="ClassBonusTitle"
+                       HorizontalAlignment="Center"
+                       Style="{StaticResource InformationText}"
+                       Margin="8"
+                       Text="Bonus de la classe (nombre de +5% dispo(s))"/>
+            <Border x:Name="ClassFirstCaracteristics"
+                    Background="Black"
+                    Padding="1"
+                    Margin="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="CC"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="CT"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="4"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="F"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="6"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="E"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="8"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="Ag"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="10"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="Int"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="12"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="FM"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="14"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="Soc"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="4"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="6"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="8"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="10"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="12"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="14"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border x:Name="ClassSecondCaracteristics"
+                    Background="Black"
+                    Padding="1"
+                    Margin="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="1"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1"/>
+                    </Grid.ColumnDefinitions>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="A"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="B"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="4"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="BF"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="6"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="BE"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="8"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="M"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="10"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="Mag"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="12"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="PF"/>
+                    </Border>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="14"
+                        Background="White">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Text="PD"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="4"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="6"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="8"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="10"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="12"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="14"
+                        Background="White">
+                        <TextBox
+                            BorderThickness="0"/>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border x:Name="Skills"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    Padding="40 0"
+                    Margin="0 8"
+                    BorderThickness="0 1">
+                <Border.BorderBrush>
+                    <LinearGradientBrush
+                        StartPoint="0,0"
+                        EndPoint="1,0">
+                        <GradientStop Color="#0000" Offset="0"/>
+                        <GradientStop Color="#FFA4A4A4" Offset="0.5"/>
+                        <GradientStop Color="#0000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+                <TextBlock
+                    Margin="8"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    FontSize="30"
+                    Text="Compétences"/>
+            </Border>
+            <TextBlock x:Name="BasicSkills"
+                       HorizontalAlignment="Center"
+                       Style="{StaticResource InformationText}"
+                       Margin="8"
+                       Text="Compétences de base"/>
+            <StackPanel
+                Orientation="Vertical"
+                HorizontalAlignment="Stretch">
+                <Border
+                    BorderBrush="Black"
+                    BorderThickness="0 0 0 1"
+                    Padding="0 0 0 4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Style="{StaticResource InformationText}"
+                            Margin="8 0"
+                            Text="Nom"/>
+                        <TextBlock
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource InformationText}"
+                            Text="Acq."/>
+                        <TextBlock
+                            Grid.Column="2"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource InformationText}"
+                            Margin="8 0"
+                            Text="+10%"/>
+                        <TextBlock
+                            Grid.Column="3"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource InformationText}"
+                            Text="+20%"/>
+                        <TextBlock
+                            Grid.Column="4"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource InformationText}"
+                            Margin="8 0"
+                            Text="Bonus"/>
+                    </Grid>
+                </Border>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Style="{StaticResource InformationText}"
+                        Margin="8 0"
+                        Text="Coucou"/>
+                    <RadioButton
+                        Grid.Column="1"
+                        HorizontalAlignment="Stretch"/>
+                    <TextBlock
+                        Grid.Column="2"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource InformationText}"
+                        Margin="8 0"
+                        Text="+10%"/>
+                    <TextBlock
+                        Grid.Column="3"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource InformationText}"
+                        Text="+20%"/>
+                    <TextBlock
+                        Grid.Column="4"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource InformationText}"
+                        Margin="8 0"
+                        Text="Bonus"/>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
